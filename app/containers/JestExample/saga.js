@@ -1,13 +1,8 @@
-/**
- * Gets the repositories of the user from Github
- */
-
-import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { LOAD_USER_SAGA } from 'containers/JestExample/constants';
 import { loadedUser } from 'containers/JestExample/actions';
 
 import request from 'utils/request';
-import { makeSelectUsername } from 'containers/HomePage/selectors';
 
 /**
  * Github repos request/response handler

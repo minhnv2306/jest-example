@@ -16,15 +16,15 @@ const selectJestExampleDomain = state => state.jestExample || initialState;
  */
 
 const makeSelectJestExample = () =>
-	createSelector(
-		selectJestExampleDomain,
-		substate => substate,
-	);
+  createSelector(
+    selectJestExampleDomain,
+    substate => substate,
+  );
 
 const makeSelectUser = () =>
-	createSelector(
-		selectJestExampleDomain,
-		jestState => jestState.user,
-	);
+  createSelector(
+    selectJestExampleDomain,
+    jestState => jestState.user,
+  );
 export default makeSelectJestExample;
 export { selectJestExampleDomain, makeSelectUser };

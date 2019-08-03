@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<JestExample /> Should render and match the snapshot 1`] = `
+<div>
+  <span>
+    This is the JestExample container!
+  </span>
+  <h1>
+     Hello I am Minh 
+  </h1>
+  <button
+    type="button"
+  >
+    Click me
+  </button>
+</div>
+`;

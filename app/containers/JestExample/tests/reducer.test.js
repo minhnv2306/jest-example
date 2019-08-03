@@ -1,13 +1,14 @@
-// import produce from 'immer';
+import produce from 'immer';
+
 import jestExampleReducer from '../reducer';
-// import { someAction } from '../actions';
+import { loadedUser } from '../actions';
 
 /* eslint-disable default-case, no-param-reassign */
 describe('jestExampleReducer', () => {
   let state;
   beforeEach(() => {
     state = {
-      // default state params here
+      user: {},
     };
   });
 
@@ -16,17 +17,14 @@ describe('jestExampleReducer', () => {
     expect(jestExampleReducer(undefined, {})).toEqual(expectedResult);
   });
 
-  /**
-   * Example state change comparison
-   *
-   * it('should handle the someAction action correctly', () => {
-   *   const expectedResult = produce(state, draft => {
-   *     draft.loading = true;
-   *     draft.error = false;
-   *     draft.userData.nested = false;
-   *   });
-   *
-   *   expect(appReducer(state, someAction())).toEqual(expectedResult);
-   * });
-   */
+  it('should handle the loadedUser action correctly', () => {
+    const user = {
+      name: 'MinhNV',
+    };
+    const expectedResult = produce(state, draft => {
+      draft.user = user;
+    });
+
+    expect(jestExampleReducer(state, loadedUser(user))).toEqual(expectedResult);
+  });
 });

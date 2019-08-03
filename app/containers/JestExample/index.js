@@ -14,8 +14,7 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectJestExample from './selectors';
-import { makeSelectUser } from './selectors';
+import makeSelectJestExample, { makeSelectUser } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
@@ -25,7 +24,6 @@ export function JestExample({ user, onClickButton }) {
   useInjectReducer({ key: 'jestExample', reducer });
   useInjectSaga({ key: 'jestExample', saga });
 
-  // console.log(user);
   return (
     <div>
       <Helmet>
@@ -34,8 +32,10 @@ export function JestExample({ user, onClickButton }) {
       </Helmet>
       <FormattedMessage {...messages.header} />
       <h1> Hello I am Minh </h1>
-      <button onClick={onClickButton}> Click me </button>
-      {user.userId != undefined && <h1> {user.title} </h1>}
+      <button type="button" onClick={onClickButton}>
+        Click me
+      </button>
+      {user && user.userId !== undefined && <h1> {user.title} </h1>}
     </div>
   );
 }
@@ -43,6 +43,7 @@ export function JestExample({ user, onClickButton }) {
 JestExample.propTypes = {
   dispatch: PropTypes.func.isRequired,
   onClickButton: PropTypes.func,
+  user: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -50,10 +51,10 @@ const mapStateToProps = createStructuredSelector({
   user: makeSelectUser(),
 });
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return {
     dispatch,
-    onClickButton: evt => {
+    onClickButton: () => {
       dispatch(loadUser());
     },
   };

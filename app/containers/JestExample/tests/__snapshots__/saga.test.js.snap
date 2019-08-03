@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`jestExampleSaga Saga should dispatch the reposLoaded action if it requests the data successfully 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "args": Array [
+      "https://jsonplaceholder.typicode.com/todos/1",
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+  "type": "CALL",
+}
+`;
+
+exports[`jestExampleSaga Saga should dispatch the reposLoaded action if it requests the data successfully 2`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "action": Object {
+      "type": "app/JestExample/LOADED_USER",
+      "user": Object {
+        "name": "MinhNV",
+      },
+    },
+    "channel": undefined,
+  },
+  "type": "PUT",
+}
+`;
